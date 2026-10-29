@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blog-post-example.html
+
+Sitemap: https://scottandnick.com/sitemap.xml

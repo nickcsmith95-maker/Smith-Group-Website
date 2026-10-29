@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | The Smith Group | Seven Gables Real Estate</title>
+<link rel="canonical" href="https://scottandnick.com/blog.html">
+<meta name="description" content="SoCal real estate insight from Scott and Nick Smith of Seven Gables Real Estate. Orange County market updates, buying and selling tips, and neighborhood guides.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14100C; --paper:#CDD4DD; --paper-2:#D8E0EA;
+    --dusk-1:#16294A; --dusk-2:#070F1F;
+    --brass:#C1652E; --brass-dark:#7A3D14; /* A11Y 1.4.3: darkened for 4.5:1 on light backgrounds */
+    --line:#C4CEDA; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{ opacity:0; transition:opacity 0.6s ease-in-out; }
+  body.page-loaded{ opacity:1; }
+  html{scroll-behavior:smooth;}
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Work Sans', sans-serif; font-size:16px; line-height:1.6; }
+  a{ color:inherit; text-decoration:none; }
+  h1,h2,h3,.serif{ font-family:'Fraunces', serif; font-weight:500; line-height:1.15; color:var(--ink); margin:0; }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 24px; }
+
+  header{ position:sticky; top:0; z-index:60; background:rgba(40,62,92,0.88); /* A11Y 1.4.3: more opaque so white header text keeps >= 4.5:1 over any page color */ backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+  .nav-row{ display:flex; align-items:center; justify-content:space-between; padding:18px 24px; max-width:1180px; margin:0 auto; }
+  .brand-name{ font-family:'Fraunces', serif; font-size:1.2rem; color:#FFFFFF; }
+  .brand-logo{ display:block; line-height:0; }
+  .brand-logo img{ display:block; height:56px; width:auto; }
+  .footer-smith{ display:block; height:140px; width:auto; margin:0 auto; }
+  @media (max-width:760px){ .brand-logo img{ height:44px; } .footer-smith{ height:112px; } }
+  .top-nav a{ color:#FFFFFF; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; margin-left:22px; }
+  .top-nav a:hover{ color:var(--brass); }
+
+  .blog-hero{
+    padding:76px 24px 64px; text-align:center; color:#FFFFFF;
+    background:linear-gradient(135deg, #070F1F 0%, #16294A 30%, #2F5F66 55%, #A5532A 80%, #070F1F 100%);
+  }
+  .blog-hero .eyebrow{ font-size:0.78rem; letter-spacing:0.2em; text-transform:uppercase; opacity:1; }
+  .blog-hero h1{ color:#FFFFFF; margin-top:16px; font-size:clamp(2rem, 4.5vw, 2.8rem); }
+  .blog-hero p{ margin-top:16px; opacity:1; max-width:52ch; margin-left:auto; margin-right:auto; }
+
+  main{ padding:64px 0 96px; }
+  .post-card{ margin-bottom:52px; padding-bottom:52px; border-bottom:1px solid var(--line); }
+  .post-card:last-child{ border-bottom:none; }
+  .post-card .eyebrow{ font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass-dark); }
+  .post-card h2{ margin-top:10px; font-size:1.6rem; }
+  .post-card h2 a:hover{ color:var(--brass-dark); }
+  .post-card p{ margin-top:14px; opacity:0.85; }
+  .post-card .read-more{ display:inline-block; margin-top:14px; font-size:0.85rem; font-weight:600; color:var(--brass-dark); border-bottom:1px solid var(--brass-dark); }
+
+  .empty-note{ text-align:center; padding:40px 24px; color:var(--ink); opacity:0.6; font-size:0.95rem; }
+
+  footer{ background:var(--dusk-2); color:rgba(255,255,255,0.75); padding:48px 0 28px; text-align:center; }
+  footer .brand-name{ color:#FFFFFF; font-size:1.1rem; }
+  footer .back-link{ display:inline-block; margin-top:14px; color:#E8955A; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; }
+  .footer-bottom{ margin-top:28px; font-size:0.75rem; opacity:1; color:rgba(255,255,255,0.78); } /* A11Y 1.4.3: was 50% opacity */
+
+  /* ===== ACCESSIBILITY (WCAG 2.1 AA) ===== */
+  /* A11Y 2.4.7 / 1.4.11: two-tone focus ring (white inner band + dark outer ring) visible on light and dark backgrounds */
+  :root{ --focus-dark:#0B1220; --focus-light:#FFFFFF; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+    outline:3px solid var(--focus-dark); outline-offset:2px; box-shadow:0 0 0 2px var(--focus-light);
+  }
+  [tabindex="-1"]:focus{ outline:none; }
+  /* A11Y 2.4.1: skip link, first tab stop, shown on focus */
+  .skip-link{ position:fixed; left:12px; top:-80px; z-index:200; background:#FFFFFF; color:#0B1220; padding:12px 18px; border-radius:6px; font-weight:600; font-size:0.9rem; text-decoration:underline; transition:top 0.15s ease; }
+  .skip-link:focus{ top:12px; }
+  .sr-only{ position:absolute !important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  /* A11Y 1.4.1: links inside text are underlined, not distinguished by color alone */
+  main p a, main li a{ text-decoration:underline; }
+  /* A11Y 2.3.3: honor the OS "reduce motion" setting */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    body{ opacity:1; }
+  }
+</style>
+<noscript><style>body{opacity:1 !important;}</style></noscript>
+</head>
+<body>
+
+<!-- A11Y 2.4.1: skip link is the first focusable element -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+
+<header>
+  <div class="nav-row">
+    <!-- A11Y 1.1.1: logo link carries the text alternative that the visible name used to provide -->
+    <a class="brand-logo" href="index.html"><img src="smith-group-logo-horizontal-white.png" alt="The Smith Group, Scott &amp; Nick, back to main site"></a>
+    <nav class="top-nav" aria-label="Main">
+      <a href="index.html">Main Site</a>
+    </nav>
+  </div>
+</header>
+
+<div class="blog-hero">
+  <div class="eyebrow">SoCal Real Estate Insight</div>
+  <h1>The Journal</h1>
+  <p>Market updates, buying and selling guidance, and neighborhood notes from Scott and Nick Smith.</p>
+</div>
+
+<main id="main" tabindex="-1">
+  <div class="wrap">
+
+    <article class="post-card">
+      <div class="eyebrow">Market Insight</div>
+      <h2><a href="fullerton-buyer-negotiating-room-fall-2026.html">Are Fullerton Buyers Getting Negotiating Room, or Are Good Homes Still Selling Fast?</a></h2>
+      <p>Orange County demand has cooled and rates are near 7.40%, but well-priced Fullerton homes are still selling fast. Here is where buyers actually have room to negotiate.</p>
+      <a class="read-more" href="fullerton-buyer-negotiating-room-fall-2026.html">Read more &rarr;</a>
+    </article>
+
+    <article class="post-card">
+      <div class="eyebrow">Market Insight</div>
+      <h2><a href="orange-county-home-pricing-strategy-fall-2026.html">How Aggressively Should You Price Your Orange County Home Right Now?</a></h2>
+      <p>Countywide Expected Market Time is running near 100 days, and two-thirds of active listings have already taken a price cut. Here's how to price it right the first time instead of chasing the market down.</p>
+      <a class="read-more" href="orange-county-home-pricing-strategy-fall-2026.html">Read more &rarr;</a>
+    </article>
+
+    <article class="post-card">
+      <div class="eyebrow">Market Insight</div>
+      <h2><a href="sell-or-rent-oc-2026.html">Should You Sell or Rent Out Your Orange County Home in 2026?</a></h2>
+      <p>With single-family medians near $1.4M and roughly one-fifth of active Orange County listings sitting without offers, some equity-rich homeowners are doing the math on renting instead of selling. Here's the framework for getting to the right answer.</p>
+      <a class="read-more" href="sell-or-rent-oc-2026.html">Read more &rarr;</a>
+    </article>
+
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="footer-smith" src="smith-group-logo-white.png" alt="The Smith Group, Scott &amp; Nick">
+    <a class="back-link" href="index.html">&larr; Back to Main Site</a>
+    <div class="footer-bottom">&copy; 2026 Scott &amp; Nick Smith at Seven Gables Real Estate. Scott Smith DRE #01717928 | Nick Smith DRE #02279469 | Seven Gables Real Estate DRE #00745605.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function reveal(){ document.body.classList.add('page-loaded'); }
+  if(document.readyState === 'complete'){ requestAnimationFrame(reveal); }
+  else{ window.addEventListener('load', function(){ requestAnimationFrame(reveal); }); }
+  setTimeout(reveal, 2000); // safety net: if an outside script is slow, show the page anyway
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a');
+    if(!link) return;
+    var href = link.getAttribute('href');
+    if(!href || href.charAt(0) === '#') return;
+    if(link.hasAttribute('data-nav')) return;
+    if(link.target === '_blank') return;
+    if(href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+    if(link.hostname && link.hostname !== window.location.hostname) return;
+    e.preventDefault();
+    document.body.classList.remove('page-loaded');
+    setTimeout(function(){ window.location.href = href; }, 600);
+  });
+})();
+</script>
+</body>
+</html>
