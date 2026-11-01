@@ -418,6 +418,8 @@
   .office-block h3{ font-size:1.2rem; }
   .office-line{ margin-top:16px; font-size:0.93rem; }
   .office-line b{ display:block; color:var(--brass-dark); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:3px; }
+  .map-embed{ margin-top:24px; aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:0 10px 28px rgba(7,15,31,0.18); }
+  .map-embed iframe{ width:100%; height:100%; border:0; display:block; }
   .map-placeholder{
     margin-top:24px; aspect-ratio:16/9;
     background:repeating-linear-gradient(45deg, var(--paper-2), var(--paper-2) 10px, var(--paper) 10px, var(--paper) 20px);
@@ -891,7 +893,10 @@
             <div class="office-line"><b>Office</b>229 N Glassell St, Orange, CA 92866</div>
             <div class="office-line"><b>Phone</b><a href="tel:+17144973550">(714) 497-3550</a></div>
           </div>
-          <div class="map-placeholder" aria-hidden="true">Map embed placeholder</div> <!-- A11Y: decorative placeholder; replace with an <iframe title="Map to Seven Gables Real Estate, 229 N Glassell St, Orange"> -->
+          <!-- A11Y 2.4.1 / 4.1.2: the iframe has a descriptive title; the office address and phone are also printed in text above the map -->
+          <div class="map-embed">
+            <iframe title="Map showing Seven Gables Real Estate at 229 N Glassell St, Orange, CA" src="https://www.google.com/maps?q=229+N+Glassell+St,+Orange,+CA+92866&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </div>
