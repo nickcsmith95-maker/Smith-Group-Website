@@ -15,18 +15,18 @@
 <meta name="twitter:title" content="Scott & Nick Smith | Seven Gables Real Estate | Orange County, CA">
 <meta name="twitter:description" content="Two generations of local real estate knowledge, serving buyers and sellers across Orange County, CA with Seven Gables Real Estate.">
 <!-- social preview image hidden for now: <meta name="twitter:image" content="seven-gables-logo.png"> -->
-<script id="rs-embedded">
-   (function() {
-        var script = document.createElement('script')
-        script.className = 'rs-embedded-script'
-        script.async = true
-        script.src = 'https://em.realscout.com/assets/em/v3/all.js'
-        var entry = document.getElementsByTagName('script')[0]
-        entry.parentNode.insertBefore(script, entry)
-      })()
-</script>
-<!-- RealScout newer widgets (Office Listings and Home Value): module script plus the listings style, copied from the RealScout Widgets page -->
+<!-- RealScout widgets (Advanced Search, Office Listings, Home Value): one module script serves all of them; the old rs-embedded loader was removed. Module script plus the listings style, copied from the RealScout Widgets page -->
 <script src="https://em.realscout.com/widgets/realscout-web-components.umd.js" type="module"></script>
+<style>
+  /* RealScout Advanced Search widget colors (button color darkened so white text passes 4.5:1) */
+  realscout-advanced-search {
+    --rs-as-button-text-color: #ffffff;
+    --rs-as-background-color: #FAF7F2;
+    --rs-as-button-color: #A5532A;
+    --rs-as-widget-width: 500px !important;
+  }
+  @media (max-width:560px){ realscout-advanced-search{ --rs-as-widget-width: 100% !important; } }
+</style>
 <style>
   realscout-office-listings {
     --rs-listing-divider-color: rgb(101, 141, 172);
@@ -647,7 +647,7 @@
       <h1 id="h-home" class="reveal-up" style="animation-delay:0.05s;">A Moving Experience</h1>
       <p class="lede reveal-up" style="animation-delay:0.22s;">Scott and Nick Smith bring two generations of local knowledge to every home, backed by Seven Gables Real Estate.</p>
       <div class="search-bar-widget reveal-up" style="animation-delay:0.38s;" role="search" aria-label="Search homes">
-        <div class="realscout-search advanced" data-rep="nicksmith402" data-button-color="#C1652E" data-button-font="#FFFFFF" data-background-color="#FAF7F2"></div>
+        <realscout-advanced-search agent-encoded-id="QWdlbnQtMzEwNjQ2"></realscout-advanced-search>
       </div>
       <div class="hero-ctas reveal-up" style="animation-delay:0.52s;">
         <a href="#page-listings" class="cta-light" data-nav="listings">Explore Properties</a>
